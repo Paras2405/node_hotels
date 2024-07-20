@@ -54,6 +54,8 @@ const app=express()//app created
 const db=require('./db');
 const bodyParser=require('body-parser');
 app.use(bodyParser.json());//body parser accepts data from user in all forms and converts data into json 
+require('dotenv').config();
+const PORT= process.env.PORT || 3000;
 
 
 const personRoutes=require('./routes/personRoutes')
@@ -72,8 +74,8 @@ app.get('/',function(req,res){
 
 
 
-app.listen(3000,()=>{
-    console.log('listening on 3000')
+app.listen(PORT,()=>{
+    console.log(`listening on port ${PORT}`)
 })
 
 //Database:chef which has knowledge of each and every item
