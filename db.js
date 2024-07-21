@@ -5,10 +5,14 @@ require('dotenv').config();
 
 //const mongoURL=process.env.DBURL_LOCAL
 const mongoURL=process.env.DBURL;
-mongoose.connect(mongoURL,{//this step initializes connection process
-    useNewUrlParser:true,
-    useUnifiedTopology:true
+
+
+mongoose.connect(mongoURL, {
+  // You can remove useNewUrlParser and useUnifiedTopology as they are no longer needed.
 })
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.log('MongoDB connection error', err));
+
 const db=mongoose.connection;
 //db=>it is used to handle events and interact with the database
 db.on('connected',()=>{
