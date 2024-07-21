@@ -5,13 +5,14 @@ require('dotenv').config();
 
 //const mongoURL=process.env.DBURL_LOCAL
 const mongoURL=process.env.DBURL;
+const PORT=process.env.PORT;
 
 
 mongoose.connect(mongoURL, {
     serverSelectionTimeoutMS: 30000
   // You can remove useNewUrlParser and useUnifiedTopology as they are no longer needed.
 })
-.then(() => console.log('MongoDB connected'))
+.then(() => console.log(`MongoDB connected at port ${PORT}`))
 .catch(err => console.log('MongoDB connection error', err));
 
 const db=mongoose.connection;

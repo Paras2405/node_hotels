@@ -55,7 +55,7 @@ const db=require('./db');
 const bodyParser=require('body-parser');
 app.use(bodyParser.json());//body parser accepts data from user in all forms and converts data into json 
 require('dotenv').config();
-const PORT= process.env.PORT || 3000;
+const PORT= process.env.PORT;
 
 
 const personRoutes=require('./routes/personRoutes')
