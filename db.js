@@ -8,6 +8,7 @@ const mongoURL=process.env.DBURL;
 
 
 mongoose.connect(mongoURL, {
+    serverSelectionTimeoutMS: 30000
   // You can remove useNewUrlParser and useUnifiedTopology as they are no longer needed.
 })
 .then(() => console.log('MongoDB connected'))
